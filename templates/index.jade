@@ -1,0 +1,159 @@
+
+extends layout
+
+block content
+  // LANDING SECTION
+  section#top.section
+    .overlay
+      // PRIMARY NAVIGATION
+      header.header-fixed
+        nav
+          .nav-title
+            h1 Code For FoCo
+          .nav-links
+            a(href='#lp-events') Events and Blog
+            a(href='#lp-mission') About Us
+            a(href='#lp-skills') Improve Your Skills
+            a(href='#lp-partners') Partners
+      // HERO SLIDER
+      section.cd-hero
+        .slant-very-top
+        ul.cd-hero-slider.autoplay
+          // Slide 1
+          li.selected
+            .cd-half-width.cd-img-container
+              img(src='assets/images/computer-slogan.png', alt='tech 2')
+            .cd-half-width
+              h2 Welcome!
+              p
+                | Thanks for stoping by Code For Fort Collins. Check out our events for upcoming meet-ups.
+              a.cd-btn(href='#lp-events')
+                | Events
+                i.bounce.fa.fa-chevron-down(aria-hidden='true')
+          // Slide 2
+          li
+            .cd-full-width
+              h2 Community Minded
+              p
+                | We love Fort Collins as much as you do. Keeping our local development community strong and building relationships that suppport the future are at the top of our priorities.
+              a.cd-btn(href='#lp-skills')
+                | Learn More
+                i.fa.fa-chevron-down(aria-hidden='true')
+          // Slide 3
+          li
+            .cd-half-width
+              h2 Partners
+              p
+                | We partner with local businesses to share networking and make our entrepreneurs stronger.
+              a.cd-btn(href='#lp-events')
+                | Join
+                i.fa.fa-chevron-down(aria-hidden='true')
+              a.cd-btn.secondary(href='#lp-events')
+                | Learn More
+                i.fa.fa-chevron-down(aria-hidden='true')
+        .slant-bottom-white_top
+      // TOP SOCIAL ICONS
+      .social
+        a(href='www.facebook.com', title='Facebook')
+          i.social-mobile-icon.fa.fa-facebook-official(aria-hidden='true')
+        a(href='www.twitter.com', title='Twitter')
+          i.social-mobile-icon.fa.fa-twitter-square(aria-hidden='true')
+        a(href='www.slack.com', title='Slack')
+          i.social-mobile-icon.fa.fa-slack(aria-hidden='true')
+        a(href='www.youtube.com', title='YouTube')
+          i.social-mobile-icon.fa.fa-youtube-square(aria-hidden='true')
+  // EVENTS AND RECENT POSTS
+  section#lp-events.section
+    .overlay
+      .row
+        .col-xs-6.col-md-6
+          h1 Events
+          // Start Events Data - Repeat for Wintersmith
+          .events-data
+            div(data-title='Code For FoCo Openhouse', data-author='Jordan', data-date='5/20/2016', data-starttime='9:00AM', data-endtime='12:00PM', data-desc="Do you need visual outreach for your idea, but don't have the financial well being? Code For Fort Collins is reaching out to the community. Stop by and get to know us. Let us show you how we can help bring your ideas to life.", data-info='242 Linden St. Fort Collins, CO | Pizza and beer will be provided.', data-img='http://lorempixel.com/700/300/technics/2/', data-link='eventspage.html')
+            div(data-title='Hack-a-thon', data-author='Jordan', data-date='6/01/2016', data-starttime='10:00AM', data-endtime='12:00AM', data-desc='Crush code video game! Compete for the grand prize of 1 million dollars and a job making video games.', data-info='242 Linden St. Fort Collins, CO | Sushi and Sake will be provided.', data-img='http://lorempixel.com/700/300/technics/2/', data-link='eventspage.html')
+          .events-container.event-container
+          a.archive(href='#')
+            p
+              i.fa.fa-chevron-circle-right(aria-hidden='true')
+              | See All Events
+        .col-xs-6.col-md-6
+          h1 Blog
+          // Start Blog Data - Repeat for Wintersmith
+          .blog-data
+            div(data-title='How to code faster', data-author='Jordan', data-date='4/28/2016', data-starttime='', data-endtime='', data-desc='', data-info='Introduction to Learning to Learn concepts', data-img='http://lorempixel.com/700/300/technics/2/', data-link='eventspage.html')
+            div(data-title='HTML/CSS Introduction', data-author='Dr. Doom', data-date='6/01/2016', data-starttime='', data-endtime='', data-desc='', data-info='HTML are the bricks and CSS is the paint.', data-img='http://lorempixel.com/700/300/technics/2/', data-link='eventspage.html')
+          .blog-container.event-container
+          a.archive(href='#')
+            p
+              i.fa.fa-chevron-circle-right(aria-hidden='true')
+              | See All Posts
+        // End Blog List
+  // MISSION STATEMENT
+  section#lp-mission.section.module.parallax.parallax-1
+    .overlay
+      .row
+        .col-xs-12.col-md-12
+          .text-box
+            h1.text-center Welcome
+            h4.text-center
+              | Code for Foco is a community of volunteers dedicated to using technology to solve everyday challenges that local non-profits, charities and other grassroots 'do-good' organizations face.
+            h4.text-center
+              | We are a community of programmers, designers, hackers, makers, tinkerers, writers and artists that all want to have an impact on the community around us.
+  // IMPROVE SKILLS SECTION
+  section#lp-skills.section
+    .overlay
+      .row
+        .col-xs-12.col-md-12
+          .card
+            img(src='http://lorempixel.com/400/200/technics/1', alt='Skills')
+          .card
+            h4 Join us to build your skill set
+          .card
+            h4 Be a part of a development community
+          .card
+            img(src='http://lorempixel.com/400/200/technics/2', alt='Skills')
+          .card
+            img(src='http://lorempixel.com/400/200/technics/3', alt='Skills')
+          .card
+            h4 Help to build a foundation for a better future in Fort Collins
+  // SECTION PARTNERS
+  section#lp-partners.section.module.parallax.parallax-2
+    .overlay
+      .row
+        .row
+          h1.text-center Partners
+        .col-xs-6.col-md-6
+        .col-xs-6.col-md-6
+  section#lp-newsletter.section
+    .row
+      .col-xs-12.col-md-12
+        form#slack(name='slack', method='POST', action='https://codeforfocoslack.herokuapp.com/invite')
+          label(for='email') Join us on Slack:
+          input#slack-email(name='email', cols='100', rows='10')
+          button(type='submit') Submit
+      .slant-bottom-gray
+
+  include author
+  each article in articles
+    article.article.intro
+      header
+        p.date
+          span= moment.utc(article.date).format('DD. MMMM YYYY')
+        h2
+          a(href=article.url)= article.title
+      section.content
+        if article.intro.length > 0
+          != typogr(article.intro).typogrify()
+        if article.hasMore
+          p.more
+            a(href=article.url) more
+
+block prepend footer
+  div.nav
+    if prevPage
+      a(href=prevPage.url) &laquo; Newer
+    else
+      a(href='/archive.html') &laquo; Archives
+    if nextPage
+      a(href=nextPage.url) Next page &raquo;

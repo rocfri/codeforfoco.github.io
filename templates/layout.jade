@@ -1,0 +1,105 @@
+doctype html
+block vars
+  - var bodyclass = null;
+html(lang='en')
+  head
+    block head
+      meta(charset='utf-8')
+      meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      title
+        block title
+          = locals.name
+          
+      // Fonts
+      link(href='https://fonts.googleapis.com/css?family=Nunito', rel='stylesheet', type='text/css')
+      link(href='https://fonts.googleapis.com/css?family=Quantico', rel='stylesheet', type='text/css')
+      
+      // Bootstrap 3 - Latest compiled and minified CSS 
+      link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7', crossorigin='anonymous')
+      // Font-Awesome
+      link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+      
+      // Local css
+      link(rel='stylesheet', href=contents.css['hero-slider.css'].url)
+      link(rel='stylesheet', href=contents.css['styles.css'].url)
+
+      // POSSIBLE RSS FEED ???
+      link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
+      
+  body
+    .container-fluid
+      .row
+        a#drawer-button
+          span
+        // Block Content
+        block content
+        // End Block Content
+        footer#lp-footer.footer
+          .col-xs-6.col-md-4
+            img(src='assets/images/computer-slogan.png', alt='tech 2')
+          .col-xs-6.col-md-4
+            h4 Our Community
+            hr
+            a.slide-effect(href='https://www.codeforamerica.org/') Code For America
+            br
+            a.slide-effect(href='http://www.codefordenver.org/') Code For Denver
+            br
+            a.slide-effect(href='http://www.codeforboulder.org/') Code For Boulder
+            br
+          .col-xs-6.col-md-4
+            h4 Social
+            hr
+            .social-container
+              a(href='www.facebook.com', title='Facebook')
+                i.social-mobile-icon.fa.fa-facebook-official(aria-hidden='true')
+              a(href='www.twitter.com', title='Twitter')
+                i.social-mobile-icon.fa.fa-twitter-square(aria-hidden='true')
+              a(href='www.slack.com', title='Slack')
+                i.social-mobile-icon.fa.fa-slack(aria-hidden='true')
+              a(href='www.youtube.com', title='YouTube')
+                i.social-mobile-icon.fa.fa-youtube-square(aria-hidden='true')
+        // POPUP SIDE DRAWER
+        #drawer
+          .drawer-side
+            // ENTER LINKS HERE
+            .row
+              h4 Code for FoCo
+              hr
+              a.slide-effect(href='#top') Back To Top
+              a.slide-effect(href='#lp-events') Events and Blog
+              a.slide-effect(href='#lp-mission') About Us
+              a.slide-effect(href='#lp-skills') Improve Your Skills
+              a.slide-effect(href='#lp-partners') Partners
+            .row
+              h4 Our Community
+              hr
+              a.slide-effect(href='https://www.codeforamerica.org/') Code For America
+              a.slide-effect(href='http://www.codefordenver.org/') Code For Denver
+              a.slide-effect(href='http://www.codeforboulder.org/') Code For Boulder
+            // Social
+            .row
+              h4 Social
+              hr
+              .social-container
+                a(href='www.facebook.com', title='Facebook')
+                  i.social-mobile-icon.fa.fa-facebook-official(aria-hidden='true')
+                a(href='www.twitter.com', title='Twitter')
+                  i.social-mobile-icon.fa.fa-twitter-square(aria-hidden='true')
+                a(href='www.slack.com', title='Slack')
+                  i.social-mobile-icon.fa.fa-slack(aria-hidden='true')
+                a(href='www.youtube.com', title='YouTube')
+                  i.social-mobile-icon.fa.fa-youtube-square(aria-hidden='true')
+          .screen-side
+          .row
+            .col-xs-12
+              .text-center
+                //- please leave the "powered by" if you use the design
+                p &copy; #{ new Date().getFullYear() } #{ locals.owner } &mdash; powered by&nbsp;
+                  a(href='https://github.com/jnordberg/wintersmith') Wintersmith
+    // jQuery
+    script(src='https://code.jquery.com/jquery-2.2.2.min.js', integrity='sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=', crossorigin='anonymous')
+    // Local JS
+    script(src=contents.js['zcss.js'].url)
+    script(src=contents.js['hero-slider.js'].url)
+    script(src=contents.js['slack-invite.js'].url)
