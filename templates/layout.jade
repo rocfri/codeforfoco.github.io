@@ -32,12 +32,18 @@ html(lang='en')
       .row
         a#drawer-button
           span
+          
+        // Block Header
+        block header
+        // End Block Header
+        
         // Block Content
         block content
         // End Block Content
+        
         footer#lp-footer.footer
           .col-xs-6.col-md-4
-            img(src='assets/images/computer-slogan.png', alt='tech 2')
+            img(src=contents.assets.images['computer-slogan.png'].url, alt='tech 2')
           .col-xs-6.col-md-4
             h4 Our Community
             hr

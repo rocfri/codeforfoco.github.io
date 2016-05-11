@@ -80,14 +80,20 @@ block content
         .col-xs-6.col-md-6
           h1 Blog
           // Start Blog Data - Repeat for Wintersmith
-          .blog-data
-            div(data-title='How to code faster', data-author='Jordan', data-date='4/28/2016', data-starttime='', data-endtime='', data-desc='', data-info='Introduction to Learning to Learn concepts', data-img='http://lorempixel.com/700/300/technics/2/', data-link='eventspage.html')
-            div(data-title='HTML/CSS Introduction', data-author='Dr. Doom', data-date='6/01/2016', data-starttime='', data-endtime='', data-desc='', data-info='HTML are the bricks and CSS is the paint.', data-img='http://lorempixel.com/700/300/technics/2/', data-link='eventspage.html')
-          .blog-container.event-container
-          a.archive(href='#')
-            p
-              i.fa.fa-chevron-circle-right(aria-hidden='true')
-              | See All Posts
+          include author
+          each article in articles
+            article.article.intro
+              header
+                p.date
+                  span= moment.utc(article.date).format('DD. MMMM YYYY')
+                h2
+                  a(href=article.url)= article.title
+              section.content
+                if article.intro.length > 0
+                  != typogr(article.intro).typogrify()
+                if article.hasMore
+                  p.more
+                    a(href=article.url) more
         // End Blog List
   // MISSION STATEMENT
   section#lp-mission.section.module.parallax.parallax-1
@@ -133,22 +139,6 @@ block content
           input#slack-email(name='email', cols='100', rows='10')
           button(type='submit') Submit
       .slant-bottom-gray
-
-  include author
-  each article in articles
-    article.article.intro
-      header
-        p.date
-          span= moment.utc(article.date).format('DD. MMMM YYYY')
-        h2
-          a(href=article.url)= article.title
-      section.content
-        if article.intro.length > 0
-          != typogr(article.intro).typogrify()
-        if article.hasMore
-          p.more
-            a(href=article.url) more
-
 block prepend footer
   div.nav
     if prevPage
